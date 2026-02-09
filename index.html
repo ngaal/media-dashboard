@@ -24,6 +24,7 @@
     --neutral: rgba(245,240,232,0.35);
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --linkedin: #0a66c2;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -41,15 +42,6 @@
     margin-bottom: 0;
     padding: 40px 0 24px;
     border-bottom: 1px solid var(--card-border);
-  }
-  .header .brand {
-    font-family: var(--serif);
-    font-size: 18px;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text);
-    letter-spacing: 0.3px;
-    margin-bottom: 20px;
   }
   .header h1 {
     font-family: var(--serif);
@@ -93,16 +85,14 @@
     border-color: var(--text);
   }
 
-  /* PERIOD SECTIONS */
+  /* PERIOD VISIBILITY */
   .p-weekly, .p-yearly { display: none; }
   body.view-weekly .p-weekly { display: block; }
   body.view-weekly .p-weekly.grid { display: grid; }
   body.view-yearly .p-yearly { display: block; }
   body.view-yearly .p-yearly.grid { display: grid; }
-  .p-both { display: block; }
-  .p-both.grid { display: grid; }
 
-  /* CARDS & LAYOUT */
+  /* SECTION TITLES */
   .section-title {
     font-family: var(--sans);
     font-size: 12px;
@@ -110,84 +100,192 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--accent);
-    margin: 36px 0 20px 0;
-    padding-left: 0;
-    border-left: none;
+    margin: 36px 0 16px 0;
   }
-  .grid { display: grid; gap: 12px; }
-  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-  .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-  .grid-5 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+
+  /* COMPANY GROUPS — Gestalt common region */
+  .company-group {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .company-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .co-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .co-aib { background: var(--accent); }
+  .co-1337 { background: var(--accent-warm); }
+
+  /* GRIDS */
+  .grid { display: grid; gap: 10px; }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .grid-4 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .grid-5 { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+  /* CARDS */
   .card {
     background: var(--card);
     border: 1px solid var(--card-border);
     border-radius: 8px;
-    padding: 20px;
+    padding: 16px;
   }
-  .card-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-  .card-value { font-size: 32px; font-weight: 700; line-height: 1.1; margin-bottom: 4px; margin-top: 4px; font-family: var(--sans); }
+  .card-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-value {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 4px 0;
+    font-family: var(--sans);
+  }
   .card-change {
-    font-size: 12px; font-weight: 600;
-    display: inline-flex; align-items: center; gap: 4px;
-    padding: 2px 8px; border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 7px;
+    border-radius: 4px;
   }
   .change-up { color: var(--up); background: rgba(74,222,128,0.08); }
   .change-down { color: var(--down); background: rgba(239,68,68,0.08); }
   .change-neutral { color: var(--neutral); background: rgba(245,240,232,0.03); }
 
-  .channel-section { margin-bottom: 40px; }
-  .channel-header {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 16px; padding: 16px 20px;
-    background: var(--card); border: 1px solid var(--card-border); border-radius: 8px;
+  /* Platform dots — Gestalt similarity */
+  .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
-  .channel-logo {
-    width: 40px; height: 40px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13px; flex-shrink: 0;
-  }
-  .channel-name { font-size: 16px; font-weight: 600; }
-  .channel-type { font-size: 13px; color: var(--text-muted); }
+  .dot-substack { background: var(--accent); }
+  .dot-youtube { background: var(--accent-red); }
+  .dot-linkedin { background: var(--linkedin); }
 
-  .post-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
-  .post-table th {
-    text-align: left; padding: 10px 12px; font-size: 11px;
-    color: var(--text-muted); text-transform: uppercase;
-    letter-spacing: 0.8px; border-bottom: 1px solid var(--card-border);
-  }
-  .post-table td { padding: 12px; font-size: 14px; border-bottom: 1px solid var(--card-border); }
-  .post-table tr:last-child td { border-bottom: none; }
-  .post-table .post-title { font-weight: 500; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .post-table .metric { font-weight: 600; font-variant-numeric: tabular-nums; }
-
-  .mini-badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; }
-
-  .highlight-box { padding: 24px; border-radius: 8px; text-align: center; }
-  .highlight-box .number { font-size: 36px; font-weight: 700; line-height: 1; font-family: var(--sans); }
-  .highlight-box .label { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
-
+  /* SUMMARY CARDS */
   .summary-card {
     background: var(--card);
-    border: 1px solid var(--card-border); border-radius: 8px; padding: 24px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 24px;
   }
-  .summary-card h3 { font-size: 12px; font-weight: 600; margin-bottom: 16px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-  .summary-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--card-border); }
+  .summary-card h3 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
   .summary-item:last-child { border-bottom: none; }
   .summary-label { font-size: 14px; }
   .summary-value { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
 
+  /* CONTENT SECTION */
+  .content-block { margin-bottom: 20px; }
+  .content-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+  }
+  .content-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+  .content-name { font-size: 15px; font-weight: 600; }
+  .content-type { font-size: 12px; color: var(--text-muted); }
+  .mini-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* TABLES */
+  .post-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .post-table th {
+    text-align: left; padding: 8px 12px; font-size: 10px;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.8px; border-bottom: 1px solid var(--card-border);
+  }
+  .post-table td { padding: 10px 12px; font-size: 13px; border-bottom: 1px solid var(--card-border); }
+  .post-table tr:last-child td { border-bottom: none; }
+  .post-table .post-title { font-weight: 500; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .post-table .metric { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  /* STREAM STATS */
+  .stream-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+  .stream-stat .num { font-size: 22px; font-weight: 800; }
+  .stream-stat .label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* FOOTER */
   .footer {
-    text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; margin-top: 48px;
+    text-align: center;
+    padding: 32px 0;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 48px;
     border-top: 1px solid var(--card-border);
     letter-spacing: 0.3px;
   }
 
   @media (max-width: 768px) {
     body { padding: 16px; }
-    .card-value { font-size: 24px; }
+    .card-value { font-size: 22px; }
     .header h1 { font-size: 28px; }
-    .highlight-box .number { font-size: 28px; }
+    .stream-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   }
 </style>
 </head>
@@ -205,33 +303,37 @@
   <button class="period-btn" onclick="switchPeriod('yearly')">Utolsó év</button>
 </div>
 
-<!-- VEZETŐI GYORS ÖSSZEFOGLALÓ (heti) -->
-<div class="p-weekly" style="margin-bottom:28px;">
-  <div class="section-title" style="margin-top:0;">Vezetői gyors összefoglaló — W6</div>
+<!-- ============================== -->
+<!-- EXECUTIVE SUMMARY — WEEKLY     -->
+<!-- ============================== -->
+<div class="p-weekly" style="margin-bottom:24px;">
+  <div class="section-title" style="margin-top:0;">Vezetői összefoglaló — W6</div>
   <div class="grid grid-2">
     <div class="summary-card">
       <h3>Ami jól működött</h3>
       <div class="summary-item"><span class="summary-label">YouTube robbanásszerű növekedés</span><span class="summary-value" style="color:var(--up);">+185 sub</span></div>
-      <div class="summary-item"><span class="summary-label">Claude Code live stream csúcsteljesítmény</span><span class="summary-value" style="color:var(--up);">87 egyidejű</span></div>
-      <div class="summary-item"><span class="summary-label">AI Budapest LinkedIn impressions (7d)</span><span class="summary-value" style="color:var(--up);">14,448</span></div>
+      <div class="summary-item"><span class="summary-label">Claude Code live csúcsteljesítmény</span><span class="summary-value" style="color:var(--up);">87 egyidejű</span></div>
+      <div class="summary-item"><span class="summary-label">AI Budapest LI impressions (7d)</span><span class="summary-value" style="color:var(--up);">14,448</span></div>
       <div class="summary-item"><span class="summary-label">1337 új követők (7d)</span><span class="summary-value" style="color:var(--up);">+8</span></div>
     </div>
     <div class="summary-card">
       <h3>Fejlesztési területek</h3>
-      <div class="summary-item"><span class="summary-label">1337 LinkedIn engagement hiányzik</span><span class="summary-value" style="color:var(--down);">0 react.</span></div>
-      <div class="summary-item"><span class="summary-label">1337 impressions csökkennek (7d)</span><span class="summary-value" style="color:var(--down);">↓75.7%</span></div>
-      <div class="summary-item"><span class="summary-label">AI Budapest LinkedIn impressions (7d)</span><span class="summary-value" style="color:var(--accent-orange);">↓33.8%</span></div>
+      <div class="summary-item"><span class="summary-label">1337 LinkedIn engagement</span><span class="summary-value" style="color:var(--down);">0 react.</span></div>
+      <div class="summary-item"><span class="summary-label">1337 impressions (7d)</span><span class="summary-value" style="color:var(--down);">&darr;75.7%</span></div>
+      <div class="summary-item"><span class="summary-label">AI Budapest LI impressions (7d)</span><span class="summary-value" style="color:var(--accent-orange);">&darr;33.8%</span></div>
       <div class="summary-item"><span class="summary-label">Substack comment engagement</span><span class="summary-value" style="color:var(--accent-orange);">0 comm.</span></div>
     </div>
   </div>
 </div>
 
-<!-- VEZETŐI GYORS ÖSSZEFOGLALÓ (éves) -->
-<div class="p-yearly" style="margin-bottom:28px;">
+<!-- ============================== -->
+<!-- EXECUTIVE SUMMARY — YEARLY     -->
+<!-- ============================== -->
+<div class="p-yearly" style="margin-bottom:24px;">
   <div class="section-title" style="margin-top:0;">Éves összefoglaló — 2025–2026</div>
   <div class="grid grid-2">
     <div class="summary-card">
-      <h3>Kiemkedő növekedés</h3>
+      <h3>Kiemelkedő növekedés</h3>
       <div class="summary-item"><span class="summary-label">AI Budapest Substack feliratkozók</span><span class="summary-value" style="color:var(--up);">+215%</span></div>
       <div class="summary-item"><span class="summary-label">AI Budapest Substack views</span><span class="summary-value" style="color:var(--up);">+268%</span></div>
       <div class="summary-item"><span class="summary-label">1337 követő növekedés</span><span class="summary-value" style="color:var(--up);">+520%</span></div>
@@ -247,126 +349,205 @@
   </div>
 </div>
 
-<!-- === ÖSSZESÍTŐ (éves) === -->
+
+<!-- ============================================================ -->
+<!-- YEARLY: KÖZÖNSÉG & NÖVEKEDÉS (Audience — top of funnel)      -->
+<!-- ============================================================ -->
 <div class="p-yearly">
-  <div class="section-title">Összesítő — Cégek (éves)</div>
-  <div class="grid grid-3" style="margin-bottom:24px;">
-    <div class="highlight-box" style="background:rgba(59,159,216,0.06); border:1px solid rgba(59,159,216,0.12);">
-      <div class="number" style="color:var(--accent);">1,893</div>
-      <div class="label">Összes céges követő / feliratkozó</div>
-    </div>
-    <div class="highlight-box" style="background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.12);">
-      <div class="number" style="color:var(--accent-green);">48,174</div>
-      <div class="label">Összes LinkedIn impressions (éves)</div>
-    </div>
-    <div class="highlight-box" style="background:rgba(201,169,110,0.06); border:1px solid rgba(201,169,110,0.12);">
-      <div class="number" style="color:var(--accent-warm);">53.3%</div>
-      <div class="label">AI Budapest Substack open rate</div>
+  <div class="section-title">Közönség & Növekedés</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-substack"></span>Substack feliratkozók</div>
+        <div class="card-value">624</div>
+        <span class="card-change change-up">&uarr; +215% (198-ról)</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>YouTube feliratkozók</div>
+        <div class="card-value">217</div>
+        <span class="card-change change-up">&uarr; +185</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn követők</div>
+        <div class="card-value">754</div>
+        <span class="card-change change-up">&uarr; +103 (+71.7%)</span>
+      </div>
     </div>
   </div>
-  <div class="grid grid-5" style="margin-bottom:32px;">
-    <div class="card" style="text-align:center;">
-      <div class="card-label">AI Budapest Substack</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent);">624</div>
-      <span class="card-change change-up">↑ +215%</span>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">AI Budapest YouTube</div>
-      <div class="card-value" style="font-size:22px; color:#ef4444;">217</div>
-      <span class="card-change change-up">↑ +185</span>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">AI Budapest LinkedIn</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent);">754</div>
-      <span class="card-change change-up">↑ +103</span>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">1337 Partners LinkedIn</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent-warm);">298</div>
-      <span class="card-change change-up">↑ +62 (+520%)</span>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">Összes céges follower</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent-green);">1,893</div>
-      <span class="card-change change-up">↑ +350 új</span>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn követők</div>
+        <div class="card-value">298</div>
+        <span class="card-change change-up">&uarr; +62 (+520%)</span>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- === ÖSSZESÍTŐ (heti) === -->
+<!-- ============================================================ -->
+<!-- YEARLY: ELÉRÉS (Reach — mid funnel)                          -->
+<!-- ============================================================ -->
+<div class="p-yearly">
+  <div class="section-title">Elérés</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-substack"></span>Substack éves views</div>
+        <div class="card-value">24.4K</div>
+        <span class="card-change change-up">&uarr; +268%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>YouTube éves views</div>
+        <div class="card-value">1,311</div>
+        <span class="card-change change-up">&uarr; &gt;999%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn impressions</div>
+        <div class="card-value">48,060</div>
+        <span class="card-change change-up">&uarr; +34,475%</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn impressions</div>
+        <div class="card-value">114</div>
+        <span class="card-change change-up">&uarr; +216.7%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- YEARLY: ELKÖTELEZŐDÉS (Engagement — bottom of funnel)        -->
+<!-- ============================================================ -->
+<div class="p-yearly">
+  <div class="section-title">Elköteleződés</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-5">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-substack"></span>Open rate</div>
+        <div class="card-value" style="font-size:22px;">53.3%</div>
+        <span class="card-change change-down">&darr; -3.16%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>Nézési idő</div>
+        <div class="card-value" style="font-size:22px;">222.7h</div>
+        <span class="card-change change-up">&uarr; &gt;999%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>Likes</div>
+        <div class="card-value" style="font-size:22px;">32</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Reactions</div>
+        <div class="card-value" style="font-size:22px;">33</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Comments</div>
+        <div class="card-value" style="font-size:22px;">3</div>
+      </div>
+    </div>
+  </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-5">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Reactions</div>
+        <div class="card-value" style="font-size:22px;">0</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Comments</div>
+        <div class="card-value" style="font-size:22px;">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- WEEKLY: LINKEDIN TELJES�MTMÉNY (7 nap — platform aggregate)   -->
+<!-- ============================================================ -->
 <div class="p-weekly">
-  <div class="section-title">Összesítő — Cégek (utolsó hét)</div>
-  <div class="grid grid-4" style="margin-bottom:32px;">
-    <div class="card" style="text-align:center;">
-      <div class="card-label">AI Budapest LinkedIn (7d)</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent);">14,448</div>
-      <span class="card-change change-down">↓ -33.8%</span>
-      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">impressions</div>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">Új követők (7d)</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent-green);">39</div>
-      <span class="card-change change-down">↓ -11.4%</span>
-      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">AI Budapest</div>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">1337 impressions (7d)</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent-warm);">18</div>
-      <span class="card-change change-down">↓ -75.7%</span>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="card-label">1337 új követők (7d)</div>
-      <div class="card-value" style="font-size:22px; color:var(--accent-warm);">8</div>
-      <span class="card-change change-down">↓ -65.2%</span>
-    </div>
-  </div>
-</div>
-
-<!-- AI BUDAPEST -->
-<div class="section-title">AI Budapest</div>
-
-<!-- AI Budapest Substack -->
-<div class="channel-section">
-  <div class="channel-header">
-    <div class="channel-logo" style="background:rgba(59,159,216,0.12); color:var(--accent); border:1px solid rgba(59,159,216,0.2);">AI</div>
-    <div>
-      <div class="channel-name">AI Budapest Substack</div>
-      <div class="channel-type">aibudapest.substack.com</div>
-    </div>
-  </div>
-
-  <!-- Substack ÉVES -->
-  <div class="p-yearly">
+  <div class="section-title">LinkedIn teljesítmény — utolsó 7 nap</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
     <div class="grid grid-4">
       <div class="card">
-        <div class="card-label">Feliratkozók</div>
-        <div class="card-value">624</div>
-        <span class="card-change change-up">↑ +215% (198-ról)</span>
+        <div class="card-label"><span class="dot dot-linkedin"></span>Új követők</div>
+        <div class="card-value" style="font-size:22px;">39</div>
+        <span class="card-change change-down">&darr; -11.4%</span>
       </div>
       <div class="card">
-        <div class="card-label">Open rate</div>
-        <div class="card-value" style="color:var(--accent-warm);">53.3%</div>
-        <span class="card-change change-down">↓ -3.16%</span>
+        <div class="card-label"><span class="dot dot-linkedin"></span>Impressions</div>
+        <div class="card-value" style="font-size:22px;">14,448</div>
+        <span class="card-change change-down">&darr; -33.8%</span>
       </div>
       <div class="card">
-        <div class="card-label">Éves megnézések</div>
-        <div class="card-value">24.4K</div>
-        <span class="card-change change-up">↑ +268%</span>
+        <div class="card-label"><span class="dot dot-linkedin"></span>Keresési megjel.</div>
+        <div class="card-value" style="font-size:22px;">298</div>
+        <span class="card-change change-up">&uarr; +24.7%</span>
       </div>
       <div class="card">
-        <div class="card-label">Legutóbbi poszt views</div>
-        <div class="card-value">644</div>
-        <span class="card-change change-up">↑ +1 új sub</span>
+        <div class="card-label"><span class="dot dot-linkedin"></span>Oldal látogatók</div>
+        <div class="card-value" style="font-size:22px;">102</div>
+        <span class="card-change change-up">&uarr; +29.1%</span>
       </div>
     </div>
   </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Új követők</div>
+        <div class="card-value" style="font-size:22px;">8</div>
+        <span class="card-change change-down">&darr; -65.2%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Impressions</div>
+        <div class="card-value" style="font-size:22px;">18</div>
+        <span class="card-change change-down">&darr; -75.7%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Keresési megjel.</div>
+        <div class="card-value" style="font-size:22px;">79</div>
+        <span class="card-change change-down">&darr; -18.6%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Oldal látogatók</div>
+        <div class="card-value" style="font-size:22px;">24</div>
+        <span class="card-change change-down">&darr; -25%</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- Substack HETI -->
-  <div class="p-weekly">
+
+<!-- ============================================================ -->
+<!-- WEEKLY: TARTALOM TELJES�MTMÉNY (Content performance)          -->
+<!-- ============================================================ -->
+<div class="p-weekly">
+  <div class="section-title">Tartalom teljesítmény</div>
+
+  <!-- SUBSTACK -->
+  <div class="content-block">
+    <div class="content-header">
+      <div class="content-logo" style="background:rgba(59,159,216,0.12); color:var(--accent); border:1px solid rgba(59,159,216,0.2);">AI</div>
+      <div>
+        <div class="content-name">AI Budapest Substack</div>
+        <div class="content-type">Email teljesítmény — utolsó hét</div>
+      </div>
+    </div>
     <div class="card">
-      <div class="card-label" style="margin-bottom:8px;">Email teljesítmény (utolsó hét)</div>
       <table class="post-table">
-        <thead><tr><th>Cím</th><th>Dátum</th><th>Küldve</th><th>Megnyitva</th><th>❤</th></tr></thead>
+        <thead><tr><th>Cím</th><th>Dátum</th><th>Küldve</th><th>Megnyitva</th><th>&hearts;</th></tr></thead>
         <tbody>
           <tr>
             <td class="post-title">Hogyan tovább a klasszikus szoftverfejlesztés után 2. rész</td>
@@ -374,64 +555,35 @@
           </tr>
           <tr>
             <td class="post-title">Hogyan tovább a klasszikus szoftverfejlesztés után 1. rész</td>
-            <td>Jan 21</td><td class="metric">529</td><td class="metric">789</td><td class="metric">—</td>
+            <td>Jan 21</td><td class="metric">529</td><td class="metric">789</td><td class="metric">&mdash;</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>
 
-<!-- AI Budapest YouTube -->
-<div class="channel-section">
-  <div class="channel-header">
-    <div class="channel-logo" style="background:rgba(239,68,68,0.1); color:#ef4444; border:1px solid rgba(239,68,68,0.15);">▶</div>
-    <div>
-      <div class="channel-name">AI Budapest YouTube</div>
-      <div class="channel-type">youtube.com</div>
-    </div>
-    <div style="margin-left:auto;">
-      <span class="mini-badge" style="background:rgba(74,222,128,0.08); color:var(--accent-green); border:1px solid rgba(74,222,128,0.15);">100 sub milestone!</span>
-    </div>
-  </div>
-
-  <!-- YouTube ÉVES -->
-  <div class="p-yearly">
-    <div class="grid grid-4">
-      <div class="card">
-        <div class="card-label">Feliratkozók</div>
-        <div class="card-value">217</div>
-        <span class="card-change change-up">↑ +185</span>
+  <!-- YOUTUBE -->
+  <div class="content-block">
+    <div class="content-header">
+      <div class="content-logo" style="background:rgba(239,68,68,0.1); color:#ef4444; border:1px solid rgba(239,68,68,0.15);">&#9654;</div>
+      <div>
+        <div class="content-name">AI Budapest YouTube</div>
+        <div class="content-type">Legutóbbi élő közvetítés</div>
       </div>
-      <div class="card">
-        <div class="card-label">Éves megnézések</div>
-        <div class="card-value">1,311</div>
-        <span class="card-change change-up">↑ &gt;999%</span>
-      </div>
-      <div class="card">
-        <div class="card-label">Nézési idő (óra)</div>
-        <div class="card-value">222.7</div>
-        <span class="card-change change-up">↑ &gt;999%</span>
-      </div>
-      <div class="card">
-        <div class="card-label">Össz. likes</div>
-        <div class="card-value">32</div>
+      <div style="margin-left:auto;">
+        <span class="mini-badge" style="background:rgba(74,222,128,0.08); color:var(--accent-green); border:1px solid rgba(74,222,128,0.15);">100 sub milestone!</span>
       </div>
     </div>
-  </div>
-
-  <!-- YouTube HETI -->
-  <div class="p-weekly">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label" style="margin-bottom:8px;">&ldquo;Mire képes a Claude Code egy hétvégéje alatt?&rdquo;</div>
+      <div class="stream-grid">
+        <div class="stream-stat"><div class="num">218</div><div class="label">megnézés</div></div>
+        <div class="stream-stat"><div class="num">37:48</div><div class="label">átl. nézési idő</div></div>
+        <div class="stream-stat"><div class="num">87</div><div class="label">csúcs egyidejű</div></div>
+        <div class="stream-stat"><div class="num">32</div><div class="label">likes</div></div>
+      </div>
+    </div>
     <div class="card">
-      <div class="card-label" style="margin-bottom:8px;">Legutóbbi élő közvetítés — &ldquo;Mire képes a Claude Code egy hétvégéje alatt?&rdquo;</div>
-      <div class="grid grid-4">
-        <div style="text-align:center;"><div style="font-size:24px; font-weight:800;">218</div><div style="font-size:12px; color:var(--text-muted);">megnézés</div></div>
-        <div style="text-align:center;"><div style="font-size:24px; font-weight:800;">37:48</div><div style="font-size:12px; color:var(--text-muted);">átl. nézési idő</div></div>
-        <div style="text-align:center;"><div style="font-size:24px; font-weight:800;">87</div><div style="font-size:12px; color:var(--text-muted);">csúcs egyidejű</div></div>
-        <div style="text-align:center;"><div style="font-size:24px; font-weight:800;">32</div><div style="font-size:12px; color:var(--text-muted);">likes</div></div>
-      </div>
-    </div>
-    <div class="card" style="margin-top:12px;">
       <div class="card-label" style="margin-bottom:8px;">Top tartalom (utolsó hét)</div>
       <table class="post-table">
         <thead><tr><th>Videó</th><th>Megnézések</th></tr></thead>
@@ -445,97 +597,6 @@
   </div>
 </div>
 
-<!-- AI Budapest LinkedIn -->
-<div class="channel-section">
-  <div class="channel-header">
-    <div class="channel-logo" style="background:rgba(59,159,216,0.1); color:var(--accent); border:1px solid rgba(59,159,216,0.15);">in</div>
-    <div>
-      <div class="channel-name">AI Budapest LinkedIn</div>
-      <div class="channel-type">Céges oldal</div>
-    </div>
-  </div>
-
-  <!-- LinkedIn ÉVES -->
-  <div class="p-yearly">
-    <div class="grid grid-4">
-      <div class="card">
-        <div class="card-label">Követők</div>
-        <div class="card-value">754</div>
-        <span class="card-change change-up">↑ +103 (+71.7%)</span>
-      </div>
-      <div class="card">
-        <div class="card-label">Éves impressions</div>
-        <div class="card-value">48,060</div>
-        <span class="card-change change-up">↑ +34,475%</span>
-      </div>
-      <div class="card">
-        <div class="card-label">Reactions</div>
-        <div class="card-value">33</div>
-      </div>
-      <div class="card">
-        <div class="card-label">Comments</div>
-        <div class="card-value">3</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LinkedIn HETI -->
-  <div class="p-weekly">
-    <div class="grid grid-4">
-      <div class="card"><div class="card-label">Search appear. (7d)</div><div class="card-value" style="font-size:24px;">298</div><span class="card-change change-up">↑ +24.7%</span></div>
-      <div class="card"><div class="card-label">Új követők (7d)</div><div class="card-value" style="font-size:24px;">39</div><span class="card-change change-down">↓ -11.4%</span></div>
-      <div class="card"><div class="card-label">Impressions (7d)</div><div class="card-value" style="font-size:24px;">14,448</div><span class="card-change change-down">↓ -33.8%</span></div>
-      <div class="card"><div class="card-label">Oldal látogatók (7d)</div><div class="card-value" style="font-size:24px;">102</div><span class="card-change change-up">↑ +29.1%</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- 1337 PARTNERS -->
-<div class="section-title" style="color:var(--accent-warm);">1337 Partners</div>
-
-<div class="channel-section">
-  <div class="channel-header">
-    <div class="channel-logo" style="background:rgba(201,169,110,0.1); color:var(--accent-warm); border:1px solid rgba(201,169,110,0.15);">1337</div>
-    <div>
-      <div class="channel-name">1337 Partners LinkedIn</div>
-      <div class="channel-type">Céges oldal</div>
-    </div>
-  </div>
-
-  <!-- 1337 ÉVES -->
-  <div class="p-yearly">
-    <div class="grid grid-4">
-      <div class="card">
-        <div class="card-label">Követők</div>
-        <div class="card-value">298</div>
-        <span class="card-change change-up">↑ +62 (+520%)</span>
-      </div>
-      <div class="card">
-        <div class="card-label">Éves impressions</div>
-        <div class="card-value">114</div>
-        <span class="card-change change-up">↑ +216.7%</span>
-      </div>
-      <div class="card">
-        <div class="card-label">Reactions</div>
-        <div class="card-value">0</div>
-      </div>
-      <div class="card">
-        <div class="card-label">Comments</div>
-        <div class="card-value">0</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 1337 HETI -->
-  <div class="p-weekly">
-    <div class="grid grid-4">
-      <div class="card"><div class="card-label">Search appear. (7d)</div><div class="card-value" style="font-size:24px;">79</div><span class="card-change change-down">↓ -18.6%</span></div>
-      <div class="card"><div class="card-label">Új követők (7d)</div><div class="card-value" style="font-size:24px;">8</div><span class="card-change change-down">↓ -65.2%</span></div>
-      <div class="card"><div class="card-label">Impressions (7d)</div><div class="card-value" style="font-size:24px;">18</div><span class="card-change change-down">↓ -75.7%</span></div>
-      <div class="card"><div class="card-label">Oldal látogatók (7d)</div><div class="card-value" style="font-size:24px;">24</div><span class="card-change change-down">↓ -25%</span></div>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <div class="footer">
