@@ -86,9 +86,11 @@
   }
 
   /* PERIOD VISIBILITY */
-  .p-weekly, .p-yearly { display: none; }
+  .p-weekly, .p-monthly, .p-yearly { display: none; }
   body.view-weekly .p-weekly { display: block; }
   body.view-weekly .p-weekly.grid { display: grid; }
+  body.view-monthly .p-monthly { display: block; }
+  body.view-monthly .p-monthly.grid { display: grid; }
   body.view-yearly .p-yearly { display: block; }
   body.view-yearly .p-yearly.grid { display: grid; }
 
@@ -300,6 +302,7 @@
 <!-- PERIOD TOGGLE -->
 <div class="period-toggle">
   <button class="period-btn active" onclick="switchPeriod('weekly')">Utolsó hét</button>
+  <button class="period-btn" onclick="switchPeriod('monthly')">Utolsó 30 nap</button>
   <button class="period-btn" onclick="switchPeriod('yearly')">Utolsó év</button>
 </div>
 
@@ -322,6 +325,265 @@
       <div class="summary-item"><span class="summary-label">1337 impressions (7d)</span><span class="summary-value" style="color:var(--down);">&darr;75.7%</span></div>
       <div class="summary-item"><span class="summary-label">AI Budapest LI impressions (7d)</span><span class="summary-value" style="color:var(--accent-orange);">&darr;33.8%</span></div>
       <div class="summary-item"><span class="summary-label">Substack comment engagement</span><span class="summary-value" style="color:var(--accent-orange);">0 comm.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!-- EXECUTIVE SUMMARY — MONTHLY    -->
+<!-- ============================== -->
+<div class="p-monthly" style="margin-bottom:24px;">
+  <div class="section-title" style="margin-top:0;">30 napos összefoglaló — jan. 9 – feb. 8.</div>
+  <div class="grid grid-2">
+    <div class="summary-card">
+      <h3>Kiemelkedő eredmények</h3>
+      <div class="summary-item"><span class="summary-label">YouTube feliratkozók növekedés</span><span class="summary-value" style="color:var(--up);">+214 sub</span></div>
+      <div class="summary-item"><span class="summary-label">AI Budapest LI új követők</span><span class="summary-value" style="color:var(--up);">+103</span></div>
+      <div class="summary-item"><span class="summary-label">Substack új feliratkozók</span><span class="summary-value" style="color:var(--up);">+95 (+18%)</span></div>
+      <div class="summary-item"><span class="summary-label">AI Budapest LI impressions</span><span class="summary-value" style="color:var(--up);">48,060</span></div>
+    </div>
+    <div class="summary-card">
+      <h3>Fejlesztési területek</h3>
+      <div class="summary-item"><span class="summary-label">1337 LinkedIn engagement</span><span class="summary-value" style="color:var(--down);">0 react.</span></div>
+      <div class="summary-item"><span class="summary-label">1337 impressions (30d)</span><span class="summary-value" style="color:var(--down);">114</span></div>
+      <div class="summary-item"><span class="summary-label">Substack open rate csökkenés</span><span class="summary-value" style="color:var(--accent-orange);">&darr;3.16%</span></div>
+      <div class="summary-item"><span class="summary-label">Substack kommentek</span><span class="summary-value" style="color:var(--accent-orange);">3</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTHLY: KÖZÖNSÉG & NÖVEKEDÉS                                -->
+<!-- ============================================================ -->
+<div class="p-monthly">
+  <div class="section-title">Közönség & Növekedés — 30 nap</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-substack"></span>Substack feliratkozók</div>
+        <div class="card-value">624</div>
+        <span class="card-change change-up">&uarr; +95 (+18%)</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>YouTube feliratkozók</div>
+        <div class="card-value">223</div>
+        <span class="card-change change-up">&uarr; +214 (&gt;999%)</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn követők</div>
+        <div class="card-value">757</div>
+        <span class="card-change change-up">&uarr; +103 (+71.7%)</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn követők</div>
+        <div class="card-value">298</div>
+        <span class="card-change change-up">&uarr; +62 (+520%)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTHLY: ELÉRÉS                                              -->
+<!-- ============================================================ -->
+<div class="p-monthly">
+  <div class="section-title">Elérés — 30 nap</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-substack"></span>Substack views</div>
+        <div class="card-value">3.85K</div>
+        <span class="card-change change-up">&uarr; +309.8%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>YouTube views</div>
+        <div class="card-value">1,388</div>
+        <span class="card-change change-up">&uarr; &gt;999%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn impressions</div>
+        <div class="card-value">48,060</div>
+        <span class="card-change change-up">&uarr; +34,475%</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>LinkedIn impressions</div>
+        <div class="card-value">114</div>
+        <span class="card-change change-up">&uarr; +216.7%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTHLY: LINKEDIN TELJESÍTMÉNY (30 nap)                      -->
+<!-- ============================================================ -->
+<div class="p-monthly">
+  <div class="section-title">LinkedIn teljesítmény — 30 nap</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Új követők</div>
+        <div class="card-value" style="font-size:22px;">103</div>
+        <span class="card-change change-up">&uarr; +71.7%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Impressions</div>
+        <div class="card-value" style="font-size:22px;">48,060</div>
+        <span class="card-change change-up">&uarr; +34,475%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Oldal látogatók</div>
+        <div class="card-value" style="font-size:22px;">237</div>
+        <span class="card-change change-up">&uarr; +106.1%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Oldal megtekintések</div>
+        <div class="card-value" style="font-size:22px;">436</div>
+        <span class="card-change change-up">&uarr; +95.5%</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Új követők</div>
+        <div class="card-value" style="font-size:22px;">62</div>
+        <span class="card-change change-up">&uarr; +520%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Impressions</div>
+        <div class="card-value" style="font-size:22px;">114</div>
+        <span class="card-change change-up">&uarr; +216.7%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Oldal látogatók</div>
+        <div class="card-value" style="font-size:22px;">151</div>
+        <span class="card-change change-up">&uarr; +36%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Oldal megtekintések</div>
+        <div class="card-value" style="font-size:22px;">304</div>
+        <span class="card-change change-up">&uarr; +37.6%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTHLY: ELKÖTELEZŐDÉS                                       -->
+<!-- ============================================================ -->
+<div class="p-monthly">
+  <div class="section-title">Elköteleződés — 30 nap</div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-aib"></span>AI Budapest</div>
+    <div class="grid grid-5">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-substack"></span>Open rate</div>
+        <div class="card-value" style="font-size:22px;">53.31%</div>
+        <span class="card-change change-down">&darr; -3.16%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>Nézési idő</div>
+        <div class="card-value" style="font-size:22px;">226.3h</div>
+        <span class="card-change change-up">&uarr; &gt;999%</span>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-youtube"></span>Likes</div>
+        <div class="card-value" style="font-size:22px;">32</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Reactions</div>
+        <div class="card-value" style="font-size:22px;">33</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Comments</div>
+        <div class="card-value" style="font-size:22px;">3</div>
+      </div>
+    </div>
+  </div>
+  <div class="company-group">
+    <div class="company-label"><span class="co-dot co-1337"></span>1337 Partners</div>
+    <div class="grid grid-5">
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Reactions</div>
+        <div class="card-value" style="font-size:22px;">0</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="dot dot-linkedin"></span>Comments</div>
+        <div class="card-value" style="font-size:22px;">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTHLY: TARTALOM TELJESÍTMÉNY                               -->
+<!-- ============================================================ -->
+<div class="p-monthly">
+  <div class="section-title">Tartalom teljesítmény — 30 nap</div>
+
+  <!-- SUBSTACK -->
+  <div class="content-block">
+    <div class="content-header">
+      <div class="content-logo" style="background:rgba(59,159,216,0.12); color:var(--accent); border:1px solid rgba(59,159,216,0.2);">AI</div>
+      <div>
+        <div class="content-name">AI Budapest Substack</div>
+        <div class="content-type">Email teljesítmény — utolsó 30 nap</div>
+      </div>
+    </div>
+    <div class="card">
+      <table class="post-table">
+        <thead><tr><th>Cím</th><th>Dátum</th><th>Küldve</th><th>Megnyitva</th><th>&hearts;</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="post-title">Hogyan tovább a klasszikus szoftverfejlesztés után 2. rész</td>
+            <td>Jan 31</td><td class="metric">540</td><td class="metric">555</td><td class="metric">6</td>
+          </tr>
+          <tr>
+            <td class="post-title">Hogyan tovább a klasszikus szoftverfejlesztés után 1. rész</td>
+            <td>Jan 21</td><td class="metric">529</td><td class="metric">789</td><td class="metric">8</td>
+          </tr>
+          <tr>
+            <td class="post-title">[MEGHÍVÓ] az év első high agency workshopjára – 01.21</td>
+            <td>Jan 12</td><td class="metric">261</td><td class="metric">355</td><td class="metric">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="content-block">
+    <div class="content-header">
+      <div class="content-logo" style="background:rgba(239,68,68,0.1); color:#ef4444; border:1px solid rgba(239,68,68,0.15);">&#9654;</div>
+      <div>
+        <div class="content-name">AI Budapest YouTube</div>
+        <div class="content-type">Top videók — utolsó 30 nap</div>
+      </div>
+    </div>
+    <div class="card">
+      <table class="post-table">
+        <thead><tr><th>Videó</th><th>Megnézések</th><th>Nézési idő</th></tr></thead>
+        <tbody>
+          <tr><td class="post-title">Mire képes a Claude Code egy hétvégéje alatt?</td><td class="metric">1,305</td><td class="metric">—</td></tr>
+          <tr><td class="post-title">AI Budapest - születésnapi meetup</td><td class="metric">34</td><td class="metric">—</td></tr>
+          <tr><td class="post-title">High Agency Workshop - AI Budapest</td><td class="metric">16</td><td class="metric">—</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -606,12 +868,12 @@
 
 <script>
 function switchPeriod(period) {
-  document.body.classList.remove('view-weekly', 'view-yearly');
+  document.body.classList.remove('view-weekly', 'view-monthly', 'view-yearly');
   document.body.classList.add('view-' + period);
   document.querySelectorAll('.period-btn').forEach(function(btn) { btn.classList.remove('active'); });
   var btns = document.querySelectorAll('.period-btn');
-  if (period === 'weekly') btns[0].classList.add('active');
-  else btns[1].classList.add('active');
+  var map = { weekly: 0, monthly: 1, yearly: 2 };
+  btns[map[period]].classList.add('active');
 }
 </script>
 
